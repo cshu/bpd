@@ -1,0 +1,1 @@
+C:\WINDOWS\AppPatch\AppLoc.exe %1 "/L0804"

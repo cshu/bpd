@@ -1,0 +1,1 @@
+C:\WINDOWS\AppPatch\AppLoc.exe "C:\WINDOWS\system32\notepad.exe" %1 "/L0804"

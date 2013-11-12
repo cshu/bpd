@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Application</title>
+<style>
+::selection {
+  background: white;
+}
+::-moz-selection {
+  background: white;
+}
+
+* {
+  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+}
+
+td {
+  width:150px;
+}
+
+</style>
+</head>
+<body>
+  <table id="enlist"></table>
+<!-- outline 0 for removing the glowing border in chrome -->
+<input id="intext" type="text" style="height:1px;width:1px;border:none;outline:0;color:white;" readonly />
+<script type="text/javascript">
+var enlist = document.getElementById('enlist');
+var intext = document.getElementById('intext');
+var enind = -1;
+var entryvs = [];
+function getentryundercurrent(){
+  return enlist.children[enind+1];//if enind==-1 or enind is the last one, return undefined?
+}
+
+var tempvalafterhpressed;
+var vtobecl;
+document.onkeydown=function(ke){
+  if(tempvalafterhpressed){
+    clearTimeout(vtobecl);
+    enlist.children[enind].lastElementChild.textContent = tempvalafterhpressed;
+    enlist.children[enind].children[0].textContent='normal';
+    tempvalafterhpressed=undefined;
+    return;
+  }
+  switch(ke.keyCode){
+    case 27://esc
+    if(intext.readOnly) return;
+    entryvs[enind] = intext.value;
+    intext.readOnly = true;
+    intext.value='';
+    enlist.children[enind].children[0].textContent='normal';
+    break;
+    case 72://h
+    if(!intext.readOnly) return;
+    if(enind===-1)return;
+    tempvalafterhpressed = enlist.children[enind].lastElementChild.textContent;
+    enlist.children[enind].lastElementChild.textContent = entryvs[enind];
+    enlist.children[enind].children[0].textContent='*';
+    vtobecl = setTimeout(function(){
+      enlist.children[enind].children[0].textContent='-';
+      enlist.children[enind].lastElementChild.textContent='-';
+    },4000);
+    break;
+    case 74://j
+    if(!intext.readOnly) return;
+    if(enind===entryvs.length-1) return;
+    enlist.children[enind].children[0].textContent='';
+    enind++;
+    enlist.children[enind].children[0].textContent='normal';
+    break;
+    case 75://k
+    if(!intext.readOnly) return;
+    if(enind<=0) return;
+    enlist.children[enind].children[0].textContent='';
+    enind--;
+    enlist.children[enind].children[0].textContent='normal';
+    break;
+    case 79://o
+    if(!intext.readOnly) return;
+    if(enind!==-1)enlist.children[enind].children[0].textContent='';
+    var newtr = document.createElement('tr');
+    var newtd = document.createElement('td'); newtd.textContent = 'insert'; newtr.appendChild(newtd);
+    newtd = document.createElement('td'); newtd.textContent = 'new'; newtr.appendChild(newtd);
+    enlist.insertBefore(newtr,getentryundercurrent());
+    enind++;
+    entryvs.splice(enind,0,'');
+    intext.readOnly=false;
+    intext.focus();
+    return false;
+    //?paste doesn't work???
+    // case 80://p
+    // if(!intext.readOnly) return;
+    // if(enind===-1)return;
+    // intext.readOnly = false;
+    // intext.focus();intext.select();document.execCommand('paste');
+    // entryvs[enind] = intext.value;
+    // intext.readOnly = true;
+    // intext.value='';
+    // enlist.children[enind].children[0].textContent='normal pasted';
+    // break;
+    case 82://r
+    if(!intext.readOnly) return;
+    if(enind===-1)return;
+    var inewstr = prompt("set str",enlist.children[enind].lastElementChild.textContent);
+    if(inewstr)enlist.children[enind].lastElementChild.textContent=inewstr;
+    break;
+    case 88://x
+    if(!intext.readOnly) return;
+    if(enind===-1)return;
+    enlist.removeChild(enlist.children[enind]);
+    entryvs.splice(enind,1);
+    if(enind===entryvs.length)enind--;
+    if(enind!==-1)enlist.children[enind].children[0].textContent='normal';
+    break;
+    case 89://y
+    if(!intext.readOnly) return;
+    if(enind===-1)return;
+    intext.readOnly = false;
+    intext.value=entryvs[enind];
+    intext.focus();intext.select();document.execCommand('copy');//note document.execCommand('selectAll'); doesn't work
+    intext.readOnly = true;
+    intext.value='';
+    enlist.children[enind].children[0].textContent='normal yanked';
+    break;
+  }
+};
+
+</script>
+</body>
+</html>

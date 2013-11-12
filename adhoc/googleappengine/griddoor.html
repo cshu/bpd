@@ -1,0 +1,346 @@
+<html>
+<head>
+<title>Griddoor</title>
+<meta charset="utf-8">
+<script type='text/javascript' >
+
+
+function hideAllItems(){
+
+	for(i=0;i<document.getElementsByTagName('dt').length;i++){
+		document.getElementsByTagName('dt')[i].style.display='none';
+	}
+}
+
+function refreshItems(){
+
+	for(i=0;i<document.getElementsByTagName('a').length;i++){
+		if(document.getElementsByTagName('a')[i].href.toLowerCase().indexOf(document.getElementById('query').value.toLowerCase())>=0||document.getElementsByTagName('a')[i].innerHTML.toLowerCase().indexOf(document.getElementById('query').value.toLowerCase())>=0)
+			document.getElementsByTagName('a')[i].parentNode.style.display='';
+	}
+
+}
+</script>
+
+<style>
+*{
+color:white;
+font-family:"Lucida Console",Monaco,monospace;
+}
+
+
+body{
+background-color:black;
+position:relative;
+overflow-y:scroll;
+}
+
+
+textarea{
+background-color:black;
+width:100%;
+height:500px;
+}
+
+input{
+background-color:black;
+width:100%;
+
+}
+
+dt{
+margin-top:20px;
+color:rgb(0, 153, 51);
+}
+
+a{
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+<!-- <div style="width:70%;margin-left:auto;margin-right:auto;"> -->
+<div style="width:30%;float:right;margin-right:3%;"><form method="post">
+Redirect Links:
+<textarea tabindex="2" name="links" >{% for link in redirectedLinks %}{{link+'\n'}}{% endfor %}</textarea>
+	<input type="submit" value="ctrl + enter"/>
+</form></div>
+
+
+<div style="width:60%;margin-left:3%;">
+<br />
+<input id="query" tabindex="1" type="text"></input>
+
+<dl>
+
+<dt>
+<a target="_blank" href="http://www.htmlescape.net/javaescape_tool.html">String escape tool for Java and .Net</a>
+<br />
+http://www.htmlescape.net/javaescape_tool.html
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://linkdecrypter.com/">Linkdecrypter.com - One website to decrypt them all</a>
+<br />
+http://linkdecrypter.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://ishare.iask.sina.com.cn/">ishare iask sina</a>
+<br />
+http://ishare.iask.sina.com.cn/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.digitconvert.com/">Floating Point Base Converter Calculator: Binary, Decimal, Hexadecimal, Octal, and any base up to 36</a>
+<br />
+http://www.digitconvert.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.binaryconvert.com/">Online Binary-Decimal Converter</a>
+<br />
+http://www.binaryconvert.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://easycalculation.com/ascii-hex.php">String to ASCII chart, ASCII to decimal convertor, String to decimal converter, string hexadecimal / hex conversion</a>
+<br />
+http://easycalculation.com/ascii-hex.php
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.unitjuggler.com/numbersystems-conversion.html">number systems conversions online</a>
+<br />
+http://www.unitjuggler.com/numbersystems-conversion.html
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.codecogs.com/latex/eqneditor.php">Online LaTeX Equation Editor</a>
+<br />
+http://www.codecogs.com/latex/eqneditor.php
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://meyerweb.com/eric/tools/dencoder/">URL Decoder/Encoder</a>
+<br />
+http://meyerweb.com/eric/tools/dencoder/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.pdfonline.com/convert-pdf/">Online PDF Converter — Create PDF & Convert PDF to Word —Free!</a>
+<br />
+http://www.pdfonline.com/convert-pdf/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.doc.investintech.com/">Convert DOCX to DOC Online Free.</a>
+<br />
+http://www.doc.investintech.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://nihongo.j-talk.com/kanji/">Kanji Romaji Hiragana Convert</a>
+<br />
+http://nihongo.j-talk.com/kanji/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.gazopa.com/">GazoPa similar image search</a>
+<br />
+http://www.gazopa.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.shareminer.com/">Search Files on Rapidshare, Search Megaupload, SendSpace, ZShare and file hosting websites - ShareMiner.com</a>
+<br />
+http://www.shareminer.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.filecatch.com/">FileCatch - Search for Shared Files</a>
+<br />
+http://www.filecatch.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.general-search.com/">General-Search.com - The Best Uploading.com File Sharing Search Engine</a>
+<br />
+http://www.general-search.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="https://www.draw.io/">Diagrams Online | draw.io</a>
+<br />
+https://www.draw.io/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://foofind.is/">foofind.is</a>
+<br />
+http://foofind.is/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.pinyin.info/tools/converter/chars2uninumbers.html">Convert characters to Unicode</a>
+<br />
+http://www.pinyin.info/tools/converter/chars2uninumbers.html
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.microsoft.com/en-us/download/details.aspx?id=13209">AppLocale</a>
+<br />
+http://www.microsoft.com/en-us/download/details.aspx?id=13209
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.regular-expressions.info/reference.html">regex</a>
+<br />
+http://www.regular-expressions.info/reference.html
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://en.wikipedia.org/wiki/DOM_events">DOM events</a>
+<br />
+http://en.wikipedia.org/wiki/DOM_events
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://alternativeto.net/">http://alternativeto.net/</a>
+<br />
+http://alternativeto.net/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.solmetra.com/scripts/regex/">Regular Expression Test Tool</a>
+<br />
+http://www.solmetra.com/scripts/regex/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://search.jayxon.com/">Download Search</a>
+<br />
+http://search.jayxon.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="https://support.google.com/mail/answer/6590?hl=en">Gmail forbidden file extensions</a>
+<br />
+https://support.google.com/mail/answer/6590?hl=en
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.downforeveryoneorjustme.com/">Down For Everyone Or Just Me -> Check if your website is down or up?</a>
+<br />
+http://www.downforeveryoneorjustme.com/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.0x11.net/">regex escape tool online</a>
+<br />
+http://www.0x11.net/
+</dt>
+
+
+<dt>
+<a target="_blank" href="http://www.imagecolorpicker.com/">Color Picker online | hex Color Picker | html Color Picker</a>
+<br />
+http://www.imagecolorpicker.com/
+</dt>
+
+
+
+
+</dl>
+
+</div>
+<!-- </div> -->
+</body>
+<script type="text/javascript">
+var objRefreshSet;
+var strInput ='';
+var isCtrl = false;
+
+document.onkeyup = function (e) {
+	if (e.which == 17)
+		isCtrl = false;
+}
+document.onkeydown = function (e) {
+	if (e.which == 17)
+		isCtrl = true;
+		
+	if (e.which == 13 && isCtrl == true && document.activeElement.tabIndex==document.getElementsByTagName('textarea')[0].tabIndex) {
+	document.forms[0].submit();
+	}
+}
+	
+window.onload = function () {
+	
+	document.getElementById('query').focus();
+	document.getElementById('query').onmouseover=
+							function(){
+								if(document.activeElement.tabIndex!=this.tabIndex)
+									this.select();
+								};
+	document.getElementById('query').onkeyup=
+							function(e){
+								if(e.which == 13){
+									
+									for(i=0;i<document.getElementsByTagName('dt').length;i++){
+										if(document.getElementsByTagName('dt')[i].style.display!='none'){
+										
+										document.getElementsByTagName('dt')[i].children[0].click();
+										
+										//var win=window.open(document.getElementsByTagName('dt')[i].children[0].href, '_blank');
+										//win.focus();
+										return;
+										}
+									}
+								}
+								else{
+								if(this.value==strInput)
+									return;
+								strInput=this.value;
+								
+								if(objRefreshSet!=undefined)
+									window.clearTimeout(objRefreshSet);
+								
+								hideAllItems();
+								
+								objRefreshSet = setTimeout(refreshItems,300);
+								}
+								};
+
+}
+</script>
+</html>
