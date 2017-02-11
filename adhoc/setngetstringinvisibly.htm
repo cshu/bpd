@@ -68,14 +68,14 @@ document.onkeydown=function(ke){
     if(!intext.readOnly) return;
     if(enind===entryvs.length-1) return;
     enlist.children[enind].children[0].textContent='';
-    enind++;
+    ++enind;
     enlist.children[enind].children[0].textContent='normal';
     break;
     case 75://k
     if(!intext.readOnly) return;
     if(enind<=0) return;
     enlist.children[enind].children[0].textContent='';
-    enind--;
+    --enind;
     enlist.children[enind].children[0].textContent='normal';
     break;
     case 79://o
@@ -85,7 +85,7 @@ document.onkeydown=function(ke){
     var newtd = document.createElement('td'); newtd.textContent = 'insert'; newtr.appendChild(newtd);
     newtd = document.createElement('td'); newtd.textContent = 'new'; newtr.appendChild(newtd);
     enlist.insertBefore(newtr,getentryundercurrent());
-    enind++;
+    ++enind;
     entryvs.splice(enind,0,'');
     intext.readOnly=false;
     intext.focus();
@@ -112,7 +112,7 @@ document.onkeydown=function(ke){
     if(enind===-1)return;
     enlist.removeChild(enlist.children[enind]);
     entryvs.splice(enind,1);
-    if(enind===entryvs.length)enind--;
+    if(enind===entryvs.length)--enind;
     if(enind!==-1)enlist.children[enind].children[0].textContent='normal';
     break;
     case 89://y

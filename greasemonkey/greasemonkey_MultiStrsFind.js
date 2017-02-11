@@ -17,7 +17,7 @@ if(STRS_TO_FIND.length>1){//must be 2 or greater, or this script is meaningless.
 		if (e.which == KEY_CODE || e.which == KEY_CODE2){
 			//console.log('specific key up, i equals '+i);
 			while(!find(STRS_TO_FIND[i])){
-				i++;
+				++i;
 				//console.log('member not found, i incremented, equals '+i);
 				document.getSelection().removeAllRanges();
 				if(i==STRS_TO_FIND.length){
