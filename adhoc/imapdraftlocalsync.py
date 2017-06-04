@@ -106,6 +106,9 @@ for num in messages[0].split():
         print("svr duplicate subject:",subj)
         sys.exit(0)
     svrdic[subj]=msg.get_payload(decode=True)
+    if svrdic[subj] is None:
+        print("svr rich text draft is not supported:",subj)
+        sys.exit(0)#?
 
 if sys.argv[5]=='dnload':
     conn.close()
@@ -154,7 +157,10 @@ if sys.argv[5]=='dnload':
             sfnm = fnm.decode()
             numoflinesinsubj = str(s.count(b'\n')+1).encode()+b' ';
             with open(sfnm,'wb') as iobw:
-                iobw.write(numoflinesinsubj);iobw.write(s);iobw.write(b'\r\n');iobw.write(l);
+                iobw.write(numoflinesinsubj)
+                iobw.write(s)
+                iobw.write(b'\r\n')
+                iobw.write(l)
             tsbw.write(struct.pack('H',len(fnm)))
             tsbw.write(fnm);
             tsbw.write(struct.pack('d',os.path.getmtime(sfnm)));
